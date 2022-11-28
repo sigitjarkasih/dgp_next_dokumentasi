@@ -23,10 +23,11 @@ import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import HolidayVillageIcon from "@mui/icons-material/HolidayVillage";
 import SettingsIcon from "@mui/icons-material/Settings";
-import Link from "next/Link";
+// import Link from "next/Link";
 import Image from "next/image";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import SignalCellularAltIcon from "@mui/icons-material/SignalCellularAlt";
+import Link from "next/link";
 
 const drawerWidth = 250;
 
