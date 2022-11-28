@@ -4,7 +4,7 @@ import {
     InputBase,
     OutlinedInput,
   } from "@mui/material";
-  import { Main } from "next/Document";
+  // import Document from "next/document";
   import Head from "next/head";
   import Image from "next/image";
   import Link from "next/link";
