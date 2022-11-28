@@ -4,6 +4,7 @@ import Layout from '../../components/Layout';
 import { Container, IconButton } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import axios from 'axios';
+import Image from "next/image";
 
 const ArtikelList = () => {
   const [artikel, setArtikel] = useState([])
@@ -44,7 +45,7 @@ const ArtikelList = () => {
     <Container>
     <h2>Data Artikel</h2>
 
-      <a href="./addartikel">Tambah Data Artikel</a> <br />
+      {/* <a href="./addartikel">Tambah Data Artikel</a> <br /> */}
 
   <table border={1}>
     <thead>
@@ -60,7 +61,7 @@ const ArtikelList = () => {
           {artikel.map((artikel) => (
           <tr key={artikel.id}>
           <td>
-            <img src={artikel.image} width="90px" />
+            <Image src={artikel.image} width="90px" alt="photo" />
           </td>
           <td>{artikel.judul}</td>
           <td>{artikel.deskripsi}</td>
