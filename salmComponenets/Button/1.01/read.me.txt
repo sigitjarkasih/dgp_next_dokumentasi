@@ -1,0 +1,10 @@
+component yang bisa dipakai 
+
+1. Ukuran font = fontSize
+2. Border Radius = radius
+3. Border Line = Border
+4. Warna = color
+5. Padding = padding
+6. Warna Background = bgcolor
+7. Cursor = Cursor
+8. 
