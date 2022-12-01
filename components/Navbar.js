@@ -21,6 +21,7 @@ import Menu from "@mui/material/Menu";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import HolidayVillageIcon from "@mui/icons-material/HolidayVillage";
 import Image from "next/image";
+import Link from "next/link";
 
 const drawerWidth = 250;
 
@@ -113,7 +114,14 @@ function Navbar() {
         >
           <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              <Image src="/LogoDgmall.png" width={60} height={50} alt="logo" />
+              <Link href="./pembeli">
+                <Image
+                  src="/LogoDgmall.png"
+                  width={60}
+                  height={50}
+                  alt="logo"
+                />
+              </Link>
             </Typography>
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: { xs: "none", md: "flex" } }}>

@@ -477,7 +477,7 @@ export default class Pembeli extends Component {
           </div>
           &nbsp; &nbsp; &nbsp;
           <div style={{ verticalAlign: "baseline" }}>
-            <Image src="/logoDgmall.png" alt="Logo" width={70} height={50} />
+            <Image src="/LogoDgmall.png" alt="Logo" width={70} height={50} />
           </div>
         </div>
       </div>
