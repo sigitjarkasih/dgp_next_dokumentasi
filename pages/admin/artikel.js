@@ -39,7 +39,7 @@ const ArtikelList = () => {
     >
       <Head>
         <title>DGMall Syariah Dokumentasi</title>
-        <link rel="icon" href="/logoDgmall.png" />
+        <link rel="icon" href="/LogoDgmall.png" />
       </Head>
       <Layout />
 
@@ -66,7 +66,7 @@ const ArtikelList = () => {
             {artikel.map((artikel) => (
               <tr key={artikel.id}>
                 <td>
-                  <Image src={artikel.thumbnail} width="90px" alt="foto" />
+                  <img src={artikel.thumbnail} width="90px" alt="foto" />
                 </td>
                 <td>{artikel.judul}</td>
                 <td>{artikel.deskripsi}</td>

@@ -1,17 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {
-  Grid,
-  Card,
-  CardContent,
-  Container,
-} from "@mui/material";
+import { Grid, Card, CardContent, Container } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Button from "@mui/material/Button";
 import Head from "next/head";
 import Layout from "../../components/Layout";
 import { useRouter } from "next/router";
+import Editor from "../../components/CKEditors";
 
 // const pilihanKategori = [
 //   {
@@ -32,9 +28,17 @@ const Addartikel = () => {
   // const [dataKategori, setDataKategori] = useState(null);
   const [thumbnail, setThumbnail] = useState("null");
   const [judul, setJudul] = useState("");
-  const [deskripsi, setDeskripsi] = useState("");
+  // const [deskripsi, setDeskripsi] = useState("");
   const [kategori, setKategori] = useState("");
   const router = useRouter();
+  // CKEditor
+  const [editorLoaded, setEditorLoaded] = useState(false);
+  const [data, setData] = useState("");
+
+  useEffect(() => {
+    setEditorLoaded(true);
+  }, []);
+  // end CKEditor
 
   // #Menampilkan Data Kategori
   // const getKategori = async () => {
@@ -48,7 +52,7 @@ const Addartikel = () => {
       let formData = new FormData();
       formData.append("thumbnail", thumbnail);
       formData.append("judul", judul);
-      formData.append("deskripsi", deskripsi);
+      formData.append("deskripsi", data);
       formData.append("kategori", kategori);
       // formData.append("nama_", image);
       // formData.append("create_thumbnail", true);
@@ -132,7 +136,7 @@ const Addartikel = () => {
                 </FormControl>
               </Grid>
 
-              <Grid xs={25} sm={20} item>
+              {/* <Grid xs={25} sm={20} item>
                 <FormControl fullWidth>
                   <input
                     type="text"
@@ -142,6 +146,18 @@ const Addartikel = () => {
                     placeholder="Deskripsi"
                   />
                 </FormControl>
+              </Grid> */}
+
+              <Grid xs={25} sm={20} item>
+                <Editor
+                  name="description"
+                  value={data}
+                  onChange={(data) => {
+                    setData(data);
+                  }}
+                  // onChange={(e) => setDeskripsi(e.target.value)}
+                  editorLoaded={editorLoaded}
+                />
               </Grid>
 
               <Grid xs={25} sm={20} item>
