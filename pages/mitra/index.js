@@ -251,7 +251,7 @@ export default class Pembeli extends Component {
                     </div>
                   </div>
                 </Link>
-                <Link href="/">
+                <Link href="./madrasah">
                   <div
                     style={{
                       display: "flex",
@@ -270,16 +270,16 @@ export default class Pembeli extends Component {
                         color: "#fefefe",
                       }}
                     >
-                      <ApartmentIcon fontSize="large" />
+                      <AccountBalanceWalletIcon fontSize="large" />
                     </div>
                     <div
                       style={{
-                        textAlign: "left",
+                        textAlign: "center",
                         color: "white",
                         paddingLeft: 20,
                       }}
                     >
-                      <h4>Apartemen</h4>
+                      <h4>Dompet Madrasah</h4>
                     </div>
                   </div>
                 </Link>
@@ -318,7 +318,7 @@ export default class Pembeli extends Component {
               </div>
 
               {/* TENGAH*/}
-              <div
+              {/* <div
                 style={{
                   // alignItems: "center",
                   justifyContent: "space-between",
@@ -454,10 +454,10 @@ export default class Pembeli extends Component {
                     </div>
                   </div>
                 </Link>
-              </div>
+              </div> */}
 
               {/* BAWAH*/}
-              <div
+              {/* <div
                 style={{
                   // alignItems: "center",
                   justifyContent: "center",
@@ -496,8 +496,8 @@ export default class Pembeli extends Component {
                       <h4>Warga</h4>
                     </div>
                   </div>
-                </Link>
-              </div>
+                </Link> 
+              </div> */}
             </div>
           </div>
         </div>
