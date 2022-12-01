@@ -66,7 +66,7 @@ const ArtikelList = () => {
             {artikel.map((artikel) => (
               <tr key={artikel.id}>
                 <td>
-                  <img src={artikel.thumbnail} width="90px" alt="foto" />
+                  <Image src={artikel.thumbnail} width="90px" alt="foto" />
                 </td>
                 <td>{artikel.judul}</td>
                 <td>{artikel.deskripsi}</td>

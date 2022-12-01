@@ -20,7 +20,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import HolidayVillageIcon from "@mui/icons-material/HolidayVillage";
-import Link from "next/Link";
+import Link from "next/link";
 import Image from "next/image";
 
 const drawerWidth = 250;
@@ -114,7 +114,7 @@ function Navbar() {
         >
           <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              <Image src="/logoDgmall.png" width={60} height={50} alt="logo" />
+              <Image src="/LogoDgmall.png" width={60} height={50} alt="logo" />
             </Typography>
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
@@ -122,8 +122,7 @@ function Navbar() {
                 size="large"
                 aria-label="show 4 new mails"
                 color="inherit"
-              >
-              </IconButton>
+              ></IconButton>
             </Box>
             <Box sx={{ display: { xs: "flex", md: "none" } }}>
               <IconButton
