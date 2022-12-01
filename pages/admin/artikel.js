@@ -15,6 +15,7 @@ const ArtikelList = () => {
   const getArtikel = async () => {
     // const response = await axios.get("http://localhost:8000/api/artikel/");
     const response = await axios.get("http://127.0.0.1:8000/api/");
+    // const response = await axios.get("http://103.186.1.137/api/artikel/");
     setArtikel(response.data);
   };
 

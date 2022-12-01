@@ -20,7 +20,6 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import HolidayVillageIcon from "@mui/icons-material/HolidayVillage";
-import Link from "next/link";
 import Image from "next/image";
 
 const drawerWidth = 250;
