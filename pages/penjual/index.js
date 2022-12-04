@@ -43,39 +43,126 @@ export default class enjual extends Component {
 
         <div>
           <div>
-            <div style={{ marginTop: "20px", marginLeft: "70px" }}>
-              <Image src="/logoDgmall.png" width={50} height={60} alt="logo" />
-            </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-around",
-                alignItems: "center",
-              }}
-            >
-              <div>
-                <h1>
-                  Assalamualaikum,
-                  <br />
-                  Selamat Datang Di Help Center DGMall Syariah,
-                  <br />
-                  Ada yang Bisa Kami Bantu ?
-                </h1>
+            <Box sx={{ display: { xs: "none", sm: "block" } }}>
+              <div style={{ marginTop: "20px", marginLeft: "70px" }}>
+                <Image
+                  src="/logoDgmall.png"
+                  width={60}
+                  height={60}
+                  alt="logo"
+                />
+              </div>
+            </Box>
+            <Box sx={{ display: { xs: "block", sm: "none" } }}>
+              <div style={{ marginTop: "10px", marginLeft: "10px" }}>
+                <Image
+                  src="/logoDgmall.png"
+                  width={40}
+                  height={40}
+                  alt="logo"
+                />
+              </div>
+            </Box>
+
+            <Box sx={{ display: { xs: "none", sm: "block" } }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                  alignItems: "center",
+                }}
+              >
+                <div>
+                  <h1>
+                    Assalamualaikum,
+                    <br />
+                    Selamat Datang Di Help Center DGMall Syariah,
+                    <br />
+                    Ada yang Bisa Kami Bantu ?
+                  </h1>
+                  <div
+                    style={{
+                      display: "flex",
+                      background: "grexy",
+                      borderRadius: "50px",
+                    }}
+                  >
+                    <OutlinedInput
+                      id="outlined-adornment-weight"
+                      fullWidth
+                      // value={values.weight}
+                      // onChange={handleChange("weight")}
+                      endAdornment={
+                        <InputAdornment position="end">
+                          <SearchIcon />
+                        </InputAdornment>
+                      }
+                      aria-describedby="outlined-weight-helper-text"
+                      inputProps={{
+                        "aria-label": "weight",
+                      }}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <Image
+                    src="/penjual.gif"
+                    width={500}
+                    height={500}
+                    alt="logo"
+                  />
+                </div>
+              </div>
+            </Box>
+
+            <Box sx={{ display: { xs: "block", sm: "none" } }}>
+              <div
+                style={{
+                  display: "inline-list-item",
+                  justifyContent: "space-around",
+                  textAlign: "center",
+                  alignItems: "center",
+                }}
+              >
+                <div>
+                  <Image
+                    src="/penjual.gif"
+                    width={250}
+                    height={250}
+                    alt="logo"
+                  />
+                </div>
                 <div
                   style={{
-                    display: "flex",
+                    padding: "15px",
+                  }}
+                >
+                  <h3>
+                    <strong>
+                      Assalamualaikum,
+                      <br />
+                      Selamat Datang Di Help Center DGMall Syariah,
+                      <br />
+                      Ada yang Bisa Kami Bantu ?
+                    </strong>
+                  </h3>
+                </div>
+                <div
+                  style={{
+                    display: "inline-list-item",
                     background: "grexy",
                     borderRadius: "50px",
+                    paddingBottom: "50px",
                   }}
                 >
                   <OutlinedInput
                     id="outlined-adornment-weight"
-                    fullWidth
+                    sx={{ width: "300px", height: "30px" }}
                     // value={values.weight}
                     // onChange={handleChange("weight")}
                     endAdornment={
                       <InputAdornment position="end">
-                        <SearchIcon />
+                        <SearchIcon fontSize="small" />
                       </InputAdornment>
                     }
                     aria-describedby="outlined-weight-helper-text"
@@ -85,67 +172,179 @@ export default class enjual extends Component {
                   />
                 </div>
               </div>
-              <div>
-                <Image src="/penjual.gif" width={500} height={500} alt="logo" />
-              </div>
-            </div>
+            </Box>
 
-            <div
-              style={{
-                alignItems: "center",
-                borderRadius: "50px",
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
+            <Box sx={{ display: { xs: "none", sm: "block" } }}>
               <div
-                className={styles.btn}
                 style={{
-                  marginlef: "25px",
-                  marginRight: "25px",
+                  alignItems: "center",
+                  borderRadius: "50px",
+                  display: "flex",
+                  justifyContent: "center",
                 }}
               >
-                <Link href="/pembeli">
-                  <SButton
-                    type="button"
-                    fontSize="15px"
-                    radius="50px"
-                    cursor="pointer"
-                    bgcolor="grey"
-                    color="white"
-                    title="Pembeli"
-                    padding="10px"
-                    border="none"
-                    paddingLeft="100px"
-                    paddingRight="100px"
-                  />
-                </Link>
-              </div>
+                <div
+                  className={styles.btn}
+                  style={{
+                    marginleft: "25px",
+                    marginRight: "25px",
+                  }}
+                >
+                  <Link href="/pembeli">
+                    <SButton
+                      type="button"
+                      fontSize="15px"
+                      radius="50px"
+                      cursor="pointer"
+                      bgcolor="grey"
+                      color="white"
+                      title="Pembeli"
+                      padding="10px"
+                      border="none"
+                      paddingLeft="100px"
+                      paddingRight="100px"
+                    />
+                  </Link>
+                </div>
 
+                <div
+                  className={styles.btn}
+                  style={{
+                    marginleft: "25px",
+                    marginRight: "25px",
+                  }}
+                >
+                  <Link href="/penjual">
+                    <SButton
+                      type="button"
+                      fontSize="15px"
+                      radius="50px"
+                      cursor="pointer"
+                      bgcolor="#10856c"
+                      color="white"
+                      title="Penjual"
+                      padding="10px"
+                      border="none"
+                      paddingLeft="100px"
+                      paddingRight="100px"
+                    />
+                  </Link>
+                </div>
+                <div
+                  className={styles.btn}
+                  style={{
+                    marginleft: "25px",
+                    marginRight: "25px",
+                  }}
+                >
+                  <Link href="./mitra">
+                    <SButton
+                      type="button"
+                      fontSize="15px"
+                      radius="50px"
+                      cursor="pointer"
+                      bgcolor="grey"
+                      color="white"
+                      title="Mitra"
+                      padding="10px"
+                      border="none"
+                      paddingLeft="100px"
+                      paddingRight="100px"
+                    />
+                  </Link>
+                </div>
+              </div>
+            </Box>
+
+            <Box sx={{ display: { xs: "block", sm: "none" } }}>
               <div
-                className={styles.btn}
                 style={{
-                  marginlef: "25px",
-                  marginRight: "25px",
+                  alignItems: "center",
+                  borderRadius: "50px",
+                  display: "inline-list-item",
+                  justifyContent: "center",
                 }}
               >
-                <Link href="/penjual">
-                  <SButton
-                    type="button"
-                    fontSize="15px"
-                    radius="50px"
-                    cursor="pointer"
-                    bgcolor="#10856c"
-                    color="white"
-                    title="Penjual"
-                    padding="10px"
-                    border="none"
-                    paddingLeft="100px"
-                    paddingRight="100px"
-                  />
-                </Link>
+                <div
+                  style={{
+                    textAlign: "center",
+                    alignItems: "center",
+
+                    marginleft: "25px",
+                    marginRight: "25px",
+                  }}
+                >
+                  <Link href="/pembeli">
+                    <SButton
+                      type="button"
+                      fontSize="15px"
+                      radius="50px"
+                      cursor="pointer"
+                      bgcolor="grey"
+                      color="white"
+                      margin="10px"
+                      title="Pembeli"
+                      padding="10px"
+                      border="none"
+                      paddingLeft="97px"
+                      paddingRight="97px"
+                    />
+                  </Link>
+                </div>
+
+                <div
+                  style={{
+                    textAlign: "center",
+                    alignItems: "center",
+                    marginleft: "25px",
+                    marginRight: "25px",
+                  }}
+                >
+                  <Link href="/penjual">
+                    <SButton
+                      type="button"
+                      fontSize="15px"
+                      radius="50px"
+                      cursor="pointer"
+                      bgcolor="#10856c"
+                      color="white"
+                      title="Penjual"
+                      margin="10px"
+                      padding="10px"
+                      border="none"
+                      paddingLeft="100px"
+                      paddingRight="100px"
+                    />
+                  </Link>
+                </div>
+                <div
+                  style={{
+                    textAlign: "center",
+                    alignItems: "center",
+                    marginleft: "25px",
+                    marginRight: "25px",
+                  }}
+                >
+                  <Link href="./mitra">
+                    <SButton
+                      type="button"
+                      fontSize="15px"
+                      radius="50px"
+                      cursor="pointer"
+                      bgcolor="grey"
+                      color="white"
+                      margin="10px"
+                      title="Mitra"
+                      padding="10px"
+                      border="none"
+                      paddingLeft="107px"
+                      paddingRight="107px"
+                    />
+                  </Link>
+                </div>
               </div>
-            </div>
+            </Box>
+
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
               <div
                 style={{
@@ -467,164 +666,181 @@ export default class enjual extends Component {
                 </div>
                 <Grid container spacing={1}>
                   <Grid item xs={3}>
-                    <Card
-                      sx={{
-                        maxWidth: 50,
-                        textAlign: "center",
-                        height: 85,
-                        color: "white",
-                        backgroundColor: "#10856c",
-                      }}
-                    >
-                      <StorefrontIcon fontSize="large" />
-                      <Typography
-                        align="center"
-                        display="block"
-                        sx={{ fontSize: "10px" }}
+                    <Link href="./">
+                      <Card
+                        sx={{
+                          maxWidth: 50,
+                          textAlign: "center",
+                          height: 85,
+                          color: "white",
+                          backgroundColor: "#10856c",
+                        }}
                       >
-                        Akun dan Keamanan Toko
-                      </Typography>
-                    </Card>
+                        <StorefrontIcon fontSize="large" />
+                        <Typography
+                          align="center"
+                          display="block"
+                          sx={{ fontSize: "10px" }}
+                        >
+                          Akun dan Keamanan Toko
+                        </Typography>
+                      </Card>
+                    </Link>
+                  </Grid>
+
+                  <Grid item xs={3}>
+                    <Link href="./">
+                      <Card
+                        sx={{
+                          maxWidth: 50,
+                          textAlign: "center",
+                          height: 85,
+                          color: "white",
+                          backgroundColor: "#10856c",
+                        }}
+                      >
+                        <InventoryIcon fontSize="large" />
+                        <Typography
+                          align="center"
+                          display="block"
+                          sx={{ fontSize: "10px" }}
+                        >
+                          Proses Pesanan
+                        </Typography>
+                      </Card>
+                    </Link>
                   </Grid>
                   <Grid item xs={3}>
-                    <Card
-                      sx={{
-                        maxWidth: 50,
-                        textAlign: "center",
-                        height: 85,
-                        color: "white",
-                        backgroundColor: "#10856c",
-                      }}
-                    >
-                      <InventoryIcon fontSize="large" />
-                      <Typography
-                        align="center"
-                        display="block"
-                        sx={{ fontSize: "10px" }}
+                    <Link href="./">
+                      <Card
+                        sx={{
+                          maxWidth: 50,
+                          textAlign: "center",
+                          height: 85,
+                          color: "white",
+                          backgroundColor: "#10856c",
+                        }}
                       >
-                        Proses Pesanan
-                      </Typography>
-                    </Card>
+                        <LocalShippingIcon fontSize="large" />
+                        <Typography
+                          align="center"
+                          display="block"
+                          sx={{ fontSize: "10px" }}
+                        >
+                          Pengiriman
+                        </Typography>
+                      </Card>
+                    </Link>
                   </Grid>
                   <Grid item xs={3}>
-                    <Card
-                      sx={{
-                        maxWidth: 50,
-                        textAlign: "center",
-                        height: 85,
-                        color: "white",
-                        backgroundColor: "#10856c",
-                      }}
-                    >
-                      <LocalShippingIcon fontSize="large" />
-                      <Typography
-                        align="center"
-                        display="block"
-                        sx={{ fontSize: "10px" }}
+                    <Link href="./">
+                      <Card
+                        sx={{
+                          maxWidth: 50,
+                          textAlign: "center",
+                          height: 85,
+                          color: "white",
+                          backgroundColor: "#10856c",
+                        }}
                       >
-                        Pengiriman
-                      </Typography>
-                    </Card>
+                        <ProductionQuantityLimitsIcon fontSize="large" />
+                        <Typography
+                          align="center"
+                          display="block"
+                          sx={{ fontSize: "10px" }}
+                        >
+                          Komplain Pesanan
+                        </Typography>
+                      </Card>
+                    </Link>
                   </Grid>
                   <Grid item xs={3}>
-                    <Card
-                      sx={{
-                        maxWidth: 50,
-                        textAlign: "center",
-                        height: 85,
-                        color: "white",
-                        backgroundColor: "#10856c",
-                      }}
-                    >
-                      <ProductionQuantityLimitsIcon fontSize="large" />
-                      <Typography
-                        align="center"
-                        display="block"
-                        sx={{ fontSize: "10px" }}
+                    <Link href="./">
+                      <Card
+                        sx={{
+                          maxWidth: 50,
+                          textAlign: "center",
+                          height: 85,
+                          color: "white",
+                          backgroundColor: "#10856c",
+                        }}
                       >
-                        Komplain Pesanan
-                      </Typography>
-                    </Card>
+                        <BentoIcon fontSize="large" />
+                        <Typography
+                          align="center"
+                          display="block"
+                          sx={{ fontSize: "10px" }}
+                        >
+                          Fitur Penjualan
+                        </Typography>
+                      </Card>
+                    </Link>
                   </Grid>
                   <Grid item xs={3}>
-                    <Card
-                      sx={{
-                        maxWidth: 50,
-                        textAlign: "center",
-                        height: 85,
-                        color: "white",
-                        backgroundColor: "#10856c",
-                      }}
-                    >
-                      <BentoIcon fontSize="large" />
-                      <Typography
-                        align="center"
-                        display="block"
-                        sx={{ fontSize: "10px" }}
+                    <Link href="./">
+                      <Card
+                        sx={{
+                          maxWidth: 50,
+                          textAlign: "center",
+                          height: 85,
+                          color: "white",
+                          backgroundColor: "#10856c",
+                        }}
                       >
-                        Fitur Penjualan
-                      </Typography>
-                    </Card>
+                        <StoreIcon fontSize="large" />
+                        <Typography
+                          align="center"
+                          display="block"
+                          sx={{ fontSize: "10px" }}
+                        >
+                          Mitra DGMall
+                        </Typography>
+                      </Card>
+                    </Link>
                   </Grid>
                   <Grid item xs={3}>
-                    <Card
-                      sx={{
-                        maxWidth: 50,
-                        textAlign: "center",
-                        height: 85,
-                        color: "white",
-                        backgroundColor: "#10856c",
-                      }}
-                    >
-                      <StoreIcon fontSize="large" />
-                      <Typography
-                        align="center"
-                        display="block"
-                        sx={{ fontSize: "10px" }}
+                    <Link href="./">
+                      <Card
+                        sx={{
+                          maxWidth: 50,
+                          textAlign: "center",
+                          height: 85,
+                          color: "white",
+                          backgroundColor: "#10856c",
+                        }}
                       >
-                        Mitra DGMall
-                      </Typography>
-                    </Card>
+                        <ReportIcon fontSize="large" />
+                        <Typography
+                          align="center"
+                          display="block"
+                          sx={{ fontSize: "10px" }}
+                        >
+                          Laporan Penyalah Gunaan
+                        </Typography>
+                      </Card>
+                    </Link>
                   </Grid>
                   <Grid item xs={3}>
-                    <Card
-                      sx={{
-                        maxWidth: 50,
-                        textAlign: "center",
-                        height: 85,
-                        color: "white",
-                        backgroundColor: "#10856c",
-                      }}
-                    >
-                      <ReportIcon fontSize="large" />
-                      <Typography
-                        align="center"
-                        display="block"
-                        sx={{ fontSize: "10px" }}
+                    <Link href="./">
+                      <Card
+                        sx={{
+                          maxWidth: 50,
+                          textAlign: "center",
+                          height: 85,
+                          color: "white",
+                          backgroundColor: "#10856c",
+                        }}
                       >
-                        Laporan Penyalah Gunaan
-                      </Typography>
-                    </Card>
-                  </Grid>
-                  <Grid item xs={3}>
-                    <Card
-                      sx={{
-                        maxWidth: 50,
-                        textAlign: "center",
-                        height: 85,
-                        color: "white",
-                        backgroundColor: "#10856c",
-                      }}
-                    >
-                      <WidgetsIcon fontSize="large" />
-                      <Typography
-                        align="center"
-                        display="block"
-                        sx={{ fontSize: "10px" }}
-                      >
-                        Lainnya
-                      </Typography>
-                    </Card>
+                        <WidgetsIcon fontSize="large" />
+                        <Typography
+                          align="center"
+                          display="block"
+                          sx={{ fontSize: "10px" }}
+                        >
+                          Lainnya
+                        </Typography>
+                      </Card>
+                    </Link>
                   </Grid>
                 </Grid>
               </div>
@@ -649,10 +865,17 @@ export default class enjual extends Component {
               {/* <h3>Powered by</h3> <span className={styles.logo}></span> */}
             </a>
           </div>
-          &nbsp; &nbsp; &nbsp;
-          <div style={{ verticalAlign: "baseline" }}>
-            <Image src="/logoDgmall.png" alt="Logo" width={70} height={50} />
-          </div>
+
+          <Box sx={{ display: { xs: "none", sm: "block" } }}>
+            <div style={{ verticalAlign: "baseline" }}>
+              <Image src="/logoDgmall.png" alt="Logo" width={50} height={50} />
+            </div>
+          </Box>
+          <Box sx={{ display: { xs: "block", sm: "none" } }}>
+            <div style={{ verticalAlign: "baseline" }}>
+              <Image src="/logoDgmall.png" alt="Logo" width={30} height={30} />
+            </div>
+          </Box>
         </div>
       </div>
     );
