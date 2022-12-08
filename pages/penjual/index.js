@@ -318,7 +318,7 @@ export default class enjual extends Component {
               {/* BAWAH */}
               <div
                 style={{
-                  justifyContent:"left",
+                  justifyContent: "space-between",
                   paddingBottom: "25px",
                   display: "flex",
                 }}
@@ -355,10 +355,7 @@ export default class enjual extends Component {
                     </div>
                   </div>
                 </Link>
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                {/* <Link href="/">
+                <Link href="/">
                   {" "}
                   <div
                     style={{
@@ -390,8 +387,8 @@ export default class enjual extends Component {
                       <h4>Mitra DGMall</h4>
                     </div>
                   </div>
-                </Link> */}
-                {/* <Link href="/">
+                </Link>
+                <Link href="/">
                   <div
                     style={{
                       display: "flex",
@@ -425,7 +422,7 @@ export default class enjual extends Component {
                       </h4>
                     </div>
                   </div>
-                </Link> */}
+                </Link>
                 <Link href="">
                   <div
                     style={{

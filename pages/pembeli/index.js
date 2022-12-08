@@ -186,7 +186,7 @@ export default class Pembeli extends Component {
                   display: "flex",
                 }}
               >
-                <Link href="./pembeli/akunpembeli">
+                <Link href="/">
                   <div
                     style={{
                       display: "flex",
@@ -218,7 +218,7 @@ export default class Pembeli extends Component {
                     </div>
                   </div>
                 </Link>
-                <Link href="./pembeli/pesanan">
+                <Link href="/">
                   <div
                     style={{
                       display: "flex",
@@ -417,7 +417,7 @@ export default class Pembeli extends Component {
                         paddingLeft: 20,
                       }}
                     >
-                      <h4>Seputar Promosi</h4>
+                      <h4>Promosi</h4>
                     </div>
                   </div>
                 </Link>
@@ -477,7 +477,7 @@ export default class Pembeli extends Component {
           </div>
           &nbsp; &nbsp; &nbsp;
           <div style={{ verticalAlign: "baseline" }}>
-            <Image src="/LogoDgmall.png" alt="Logo" width={70} height={50} />
+            <Image src="/logoDgmall.png" alt="Logo" width={70} height={50} />
           </div>
         </div>
       </div>

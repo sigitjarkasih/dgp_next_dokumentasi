@@ -17,6 +17,8 @@ function Madrasah() {
     fetchArtikel();
   }, []);
 
+  
+
   return (
     <div
       style={{
@@ -31,7 +33,7 @@ function Madrasah() {
 
       <Head>
         <title>DGMall Syariah Help Center</title>
-        <link rel="icon" href="/LogoDgmall.png" />
+        <link rel="icon" href="/logoDgmall.png" />
       </Head>
       <Navbar />
 

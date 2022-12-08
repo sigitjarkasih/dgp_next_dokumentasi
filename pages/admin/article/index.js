@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
-import Layout from "../../components/Layout";
+import Layout from "../../../components/Layout";
 import { Container, IconButton } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import APIArticleList from "../../api/article/list";
 
 const ArtikelList = () => {
   const [artikel, setArtikel] = useState([]);
@@ -13,7 +14,7 @@ const ArtikelList = () => {
   const router = useRouter();
 
   const getArtikel = async () => {
-    const response = await axios.get("http://localhost:8000/api/artikel/");
+    const response = await APIArticleList({});
     // const response = await axios.get("http://127.0.0.1:8000/api/");
     setArtikel(response.data);
   };
@@ -55,9 +56,9 @@ const ArtikelList = () => {
         <table border={1}>
           <thead>
             <tr>
-              <th>Foto</th>
               <th>Judul</th>
               <th>Deskripsi</th>
+              <th>status</th>
               <th>Kategori</th>
               <th>Actions</th>
             </tr>
@@ -65,11 +66,12 @@ const ArtikelList = () => {
           <tbody>
             {artikel.map((artikel) => (
               <tr key={artikel.id}>
-                <td>
+                {/* <td>
                   <img src={artikel.thumbnail} width="90px" alt="foto" />
-                </td>
-                <td>{artikel.judul}</td>
-                <td>{artikel.deskripsi}</td>
+                </td> */}
+                <td>{artikel.title}</td>
+                <td>{artikel.content_desc}</td>
+                <td>{artikel.is_active}</td>
                 <td>{artikel.kategori}</td>
                 <td>
                   <button
