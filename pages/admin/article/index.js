@@ -3,8 +3,6 @@ import Head from "next/head";
 import Layout from "../../../components/Layout";
 import { Container, IconButton } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import axios from "axios";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import APIArticleList from "../../api/article/list";
 
@@ -17,6 +15,13 @@ const ArtikelList = () => {
     const response = await APIArticleList({});
     // const response = await axios.get("http://127.0.0.1:8000/api/");
     setArtikel(response.data);
+  };
+
+  const goToDetails = (id) => {
+    router.push({
+      pathname: "/admin/article/edit",
+      query: { id: id },
+    });
   };
 
   useEffect(() => {
@@ -47,37 +52,25 @@ const ArtikelList = () => {
       <Container>
         <h2>Data Artikel</h2>
 
-        {/* <a href="./addartikel">Tambah Data Artikel</a> <br /> */}
-
-        <button type="button" onClick={() => router.push("./addartikel")}>
+        <button type="button" onClick={() => router.push("./article/add")}>
           Tambah Data
         </button>
 
         <table border={1}>
           <thead>
             <tr>
-              <th>Judul</th>
-              <th>Deskripsi</th>
-              <th>status</th>
-              <th>Kategori</th>
+              <th>Title</th>
+              <th>Content Desc</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             {artikel.map((artikel) => (
               <tr key={artikel.id}>
-                {/* <td>
-                  <img src={artikel.thumbnail} width="90px" alt="foto" />
-                </td> */}
                 <td>{artikel.title}</td>
                 <td>{artikel.content_desc}</td>
-                <td>{artikel.is_active}</td>
-                <td>{artikel.kategori}</td>
                 <td>
-                  <button
-                    type="button"
-                    onClick={() => router.push("./editartikel")}
-                  >
+                  <button type="button" onClick={() => goToDetails(artikel.id)}>
                     Edit
                   </button>
                   <button type="button" onClick={() => router.push("./delete")}>
