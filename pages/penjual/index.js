@@ -213,7 +213,7 @@ export default class enjual extends Component {
                       }}
                     >
                       <h4>
-                        Akun dan <br /> Kemanan Toko
+                        Akun dan <br /> Keamanan Toko
                       </h4>
                     </div>
                   </div>
@@ -384,11 +384,11 @@ export default class enjual extends Component {
                         paddingLeft: 20,
                       }}
                     >
-                      <h4>Mitra DGMall</h4>
+                      <h4>Lainnya</h4>
                     </div>
                   </div>
                 </Link>
-                <Link href="/">
+                {/* <Link href="/">
                   <div
                     style={{
                       display: "flex",
@@ -422,8 +422,8 @@ export default class enjual extends Component {
                       </h4>
                     </div>
                   </div>
-                </Link>
-                <Link href="">
+                </Link> */}
+                {/* <Link href="">
                   <div
                     style={{
                       display: "flex",
@@ -454,7 +454,7 @@ export default class enjual extends Component {
                       <h4>Lainnya</h4>
                     </div>
                   </div>
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>

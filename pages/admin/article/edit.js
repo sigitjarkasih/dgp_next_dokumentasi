@@ -9,9 +9,11 @@ import APIArticleListById from "../../api/article/listById";
 import ConfirmationDialog from "../../../components/fungsi/confirmationDialog";
 import Router, { withRouter } from "next/router";
 import Head from "next/head";
-import Editor from "../../../components/CKEditors";
 import APIArticleUpdate from "../../api/article/update";
-
+import APIArticleDelete from "../../api/article/delete";
+import AppContext from "../../../config/context/app";
+import ImageArticleUploadTools from "../../../components/vacationEdit/imageArticleUploadTools";
+import Tiptap from "../../../components/TableDefault/tiptap";
 
 class ArticleEdit extends React.Component {
   constructor(props) {
@@ -20,9 +22,23 @@ class ArticleEdit extends React.Component {
       id: "",
       title: "",
       content_desc: "",
-      is_active: "",
+      // is_active: "",
+      // image_link: "",
+      image_width: "",
+      image_height: "",
+      openConfirmDelete: false,
+      // snackbar: {
+      //   open: false,
+      //   message: "...",
+      // },
     };
   }
+
+  // setSnackbar = (snackbar) => {
+  //   this.setState((prevState) => ({ snackbar }));
+  // };
+
+  static contextType = AppContext;
 
   validate = Yup.object({
     id: Yup.string().required("Wajib diisi!"),
@@ -31,35 +47,39 @@ class ArticleEdit extends React.Component {
     is_active: Yup.string().required("Wajib diisi!"),
   });
 
-  getData = async () => {
-    const resp = await APIArticleListById({
-      id: this.props.router.query.id,
-    });
-    this.setState({
-      id: "",
-      title: resp.data[0].title,
-      content_desc: "",
-      is_active: "",
-      create_ad: "",
-      update_at: "",
-    });
-    console.log(resp.data[0].title);
-  };
-
   submitData = async (values) => {
     const resp = await APIArticleUpdate(values);
     if (resp.data === "success") {
-      this.context.setSnackbar({
+      this.setSnackbar({
         open: true,
         message: "Update Berhasil",
       });
-      // Router.push('/setting/article/edit?id=');
+      Router.push("/admin/article/list");
     } else {
-      this.context.setSnackbar({
+      this.setSnackbar({
         open: true,
         message: resp.statusText,
       });
     }
+  };
+
+  handleDelete = () => {
+    this.setState({
+      openConfirmDelete: true,
+    });
+  };
+
+  handleCloseConfirmDelete = () => {
+    this.setState({
+      openConfirmDelete: false,
+    });
+  };
+
+  handleOKConfirmDelete = () => {
+    this.deleteArticle();
+    this.setState({
+      openConfirmDelete: false,
+    });
   };
 
   deleteArticle = async () => {
@@ -76,21 +96,8 @@ class ArticleEdit extends React.Component {
         open: false,
       });
 
-      Router.push("/article");
+      Router.push("/admin/article/list");
     }
-  };
-
-  handleOKConfirmDelete = () => {
-    this.deleteArticle();
-    this.setState({
-      openConfirmDelete: false,
-    });
-  };
-
-  handleDelete = () => {
-    this.setState({
-      openConfirmDelete: true,
-    });
   };
 
   keepSelectProField = (data) => {
@@ -100,9 +107,32 @@ class ArticleEdit extends React.Component {
     });
   };
 
+  getData = async (context) => {
+    const resp = await APIArticleListById({
+      id: this.props.router.query.id,
+      // id: context.query.id
+    });
+    this.setState({
+      id: "",
+      title: resp.data["0"].title,
+      content_desc: "",
+      is_active: "",
+      // image_link: "",
+      create_ad: "",
+      update_at: "",
+    });
+    // console.log(resp.data[0].title);
+  };
+
   componentDidMount() {
     this.getData();
   }
+
+  onUpdateContent = (result) => {
+    this.setState({
+      content_desc: result,
+    });
+  };
 
   render() {
     return (
@@ -149,9 +179,17 @@ class ArticleEdit extends React.Component {
                   <Button color="error" onClick={this.handleDelete}>
                     Hapus
                   </Button>
-                  <Button href="/article">Daftar Artikel</Button>
+                  <Button href="/admin/article/list">Daftar Artikel</Button>
                 </Stack>
                 <Widget.Box>
+                  {/* <Box mb={3}>
+                    <Typography>Image</Typography>
+                    <ImageArticleUploadTools
+                      id={this.state.id}
+                      image_link={this.state.image_link}
+                    />
+                  </Box> */}
+
                   <Box mb={3}>
                     <Typography>Title</Typography>
                     <FormikTextField
@@ -160,21 +198,13 @@ class ArticleEdit extends React.Component {
                     />
                   </Box>
 
-                  {/* <Box mb={3}>
+                  <Box mb={3}>
                     <Typography>Content Description</Typography>
-                    <Editor
-                      content={this.props.data["content_desc"]}
+                    <Tiptap
+                      content={this.props.content_desc}
                       onUpdateEditor={this.onUpdateContent}
                     />
-                  </Box> */}
-
-                  {/* <Box mb={3}>
-                    <Typography>Image</Typography>
-                    <ImageArticleUploadTools
-                      id={this.state.id}
-                      image_link={this.state.image_link}
-                    />
-                  </Box> */}
+                  </Box>
 
                   <Box mb={3}>
                     <Typography>Status</Typography>

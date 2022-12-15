@@ -19,6 +19,7 @@ import LocationCityIcon from "@mui/icons-material/LocationCity";
 import LandscapeIcon from "@mui/icons-material/Landscape";
 import LocalDiningIcon from "@mui/icons-material/LocalDining";
 import GroupsIcon from "@mui/icons-material/Groups";
+import APIArticleList from "../api/article/list";
 
 import React, { Component } from "react";
 
@@ -27,8 +28,26 @@ export default class Pembeli extends Component {
     super(props);
     this.state = {
       nano: null,
+      data:[]
     };
   }
+
+  getData = async () => {
+    const resp = await APIArticleList({
+      //   user_id: this.context.user.user_id,
+    });
+    if (resp.status === 200) {
+      this.setState({
+        data: resp.data[4].title,
+      });
+    }
+    console.log(resp)
+  };
+
+  componentDidMount() {
+    this.getData();
+  }
+
   render() {
     return (
       <div>
@@ -354,7 +373,7 @@ export default class Pembeli extends Component {
                         paddingLeft: 20,
                       }}
                     >
-                      <h4>Dompet Madrasah</h4>
+                      <h4>{this.state.data}</h4>
                     </div>
                   </div>
                 </Link>

@@ -2,9 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  // images : {
-  //   domains: ['collections.dgpmall.com']
-  // }
-}
-
-module.exports = nextConfig
+};
+module.exports = {
+  images: {
+    domains: ["127.0.0.1"],
+  },
+};

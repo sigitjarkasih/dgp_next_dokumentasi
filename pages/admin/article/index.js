@@ -5,6 +5,8 @@ import { Container, IconButton } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { useRouter } from "next/router";
 import APIArticleList from "../../api/article/list";
+import { url_media } from "../../api/url";
+import Image from "next/image";
 
 const ArtikelList = () => {
   const [artikel, setArtikel] = useState([]);
@@ -50,7 +52,7 @@ const ArtikelList = () => {
       <Layout />
 
       <Container>
-        <h2>Data Artikel</h2>
+        <h2>Data Article</h2>
 
         <button type="button" onClick={() => router.push("./article/add")}>
           Tambah Data
@@ -59,6 +61,7 @@ const ArtikelList = () => {
         <table border={1}>
           <thead>
             <tr>
+              <th>Image</th>
               <th>Title</th>
               <th>Content Desc</th>
               <th>Actions</th>
@@ -67,14 +70,26 @@ const ArtikelList = () => {
           <tbody>
             {artikel.map((artikel) => (
               <tr key={artikel.id}>
+                <td>
+                  {artikel.image_link === null ? (
+                    <div style={{ fontSize: 12, color: "GrayText" }}>
+                      No Image
+                    </div>
+                  ) : (
+                    <Image
+                      src={url_media + artikel.image_link}
+                      height={40}
+                      width={45}
+                      alt="media"
+                    />
+                  )}
+                </td>
                 <td>{artikel.title}</td>
                 <td>{artikel.content_desc}</td>
+
                 <td>
                   <button type="button" onClick={() => goToDetails(artikel.id)}>
                     Edit
-                  </button>
-                  <button type="button" onClick={() => router.push("./delete")}>
-                    Hapus
                   </button>
                 </td>
               </tr>

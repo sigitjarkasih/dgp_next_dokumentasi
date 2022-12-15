@@ -4,11 +4,12 @@ import { Form, Formik } from "formik";
 import Router from "next/router";
 import APIArticleCreate from "../../api/article/create";
 import Layout from "../../../components/Layout";
-import { Grid, Card, CardContent, Container, Box } from "@mui/material";
+import { Grid, Button, CardContent, Container, Box } from "@mui/material";
 import Head from "next/head";
 import * as Widgets from "../../../team/widget/";
 import FormikSelectField from "../../../components/atoms/Formik/SelectField";
 import FormikTextField from "../../../components/atoms/Formik/TextField";
+import AppContext from "../../../config/context/app";
 
 class ArticleAdd extends React.Component {
   constructor(props) {
@@ -16,8 +17,18 @@ class ArticleAdd extends React.Component {
     this.state = {
       title: "",
       is_activa: 1,
-    };
+      snackbar: {
+        open: false,
+        message: "...",
+      },
+    }; 
   }
+
+  setSnackbar = (snackbar) => {
+    this.setState((prevState) => ({ snackbar }));
+  };
+
+  static contextType = AppContext;
 
   validate = Yup.object({
     title: Yup.string().required("Wajib diisi!"),
@@ -26,13 +37,14 @@ class ArticleAdd extends React.Component {
   submitData = async (values) => {
     const resp = await APIArticleCreate(values);
     if (resp.data != "") {
-      this.context.setSnackbar({
+      this.setSnackbar({
         open: true,
         message: "Submit Berhasil",
       });
-      Router.push(`/article/edit?id=${resp.data}`);
+      Router.push(`/admin/list`);
+      // Router.push(`/article/edit?id=${resp.data}`);
     } else {
-      this.context.setSnackbar({
+      this.setSnackbar({
         open: true,
         message: resp.statusText,
       });
@@ -80,6 +92,7 @@ class ArticleAdd extends React.Component {
             <Form>
               <Widgets.Paper>
                 <Widgets.PageHeader title="Create Articel" />
+                <Button href="/admin/article/list">Daftar Artikel</Button>
                 <Widgets.Box>
                   <FrameField
                     title="Title"
