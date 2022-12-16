@@ -160,7 +160,7 @@ const MenuBar = ({ editor }) => {
 
 // export default MenuBar;
 
-export default Tiptap = ({ content, onUpdateEditor }) => {
+export default ({ content, onUpdateEditor }) => {
   const editor = useEditor({
     extensions: [StarterKit],
     content: content,

@@ -7,7 +7,7 @@ class AppProvider extends React.Component {
     loggedIn: false,
     menuCollapse: [],
     snackbar: {
-      open: false,
+      open: false, 
       message: "...",
     },
     theme: {

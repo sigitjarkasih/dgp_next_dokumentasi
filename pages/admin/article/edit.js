@@ -22,8 +22,8 @@ class ArticleEdit extends React.Component {
       id: "",
       title: "",
       content_desc: "",
-      // is_active: "",
-      // image_link: "",
+      is_active: "",
+      image_link: "",
       image_width: "",
       image_height: "",
       openConfirmDelete: false,
@@ -34,9 +34,9 @@ class ArticleEdit extends React.Component {
     };
   }
 
-  // setSnackbar = (snackbar) => {
-  //   this.setState((prevState) => ({ snackbar }));
-  // };
+  setSnackbar = (snackbar) => {
+    this.setState((prevState) => ({ snackbar }));
+  };
 
   static contextType = AppContext;
 
@@ -117,7 +117,7 @@ class ArticleEdit extends React.Component {
       title: resp.data["0"].title,
       content_desc: "",
       is_active: "",
-      // image_link: "",
+      image_link: "",
       create_ad: "",
       update_at: "",
     });
@@ -182,13 +182,13 @@ class ArticleEdit extends React.Component {
                   <Button href="/admin/article/list">Daftar Artikel</Button>
                 </Stack>
                 <Widget.Box>
-                  {/* <Box mb={3}>
+                  <Box mb={3}>
                     <Typography>Image</Typography>
                     <ImageArticleUploadTools
                       id={this.state.id}
                       image_link={this.state.image_link}
                     />
-                  </Box> */}
+                  </Box>
 
                   <Box mb={3}>
                     <Typography>Title</Typography>

@@ -4,6 +4,7 @@ import AppContext from "../../config/context/app";
 import Router from "next/router";
 import { Box } from "@mui/material";
 import Head from "next/head";
+import APIUserArticle from "../api/userArticle";
 
 class AccountSignin extends React.Component {
   constructor(props) {
@@ -12,10 +13,44 @@ class AccountSignin extends React.Component {
       email: "",
       password: "",
       loading: false,
+      snackbar: {
+        open: false,
+        message: "...",
+      },
     };
   }
 
   static contextType = AppContext;
+
+  setSnackbar = (snackbar) => {
+    this.setState((prevState) => ({ snackbar }));
+  };
+
+  submitData = async () => {
+    this.setState({ loading: true });
+    const resp = await APIUserArticle({
+      email: this.state.email.trim().toLowerCase(),
+      password: this.state.password.trim(),
+    });
+    console.log(resp);
+
+    if (resp.data === "success") {
+      if (resp.data.data === "failed") {
+        this.setState({ loading: false });
+        this.setSnackbar({
+          open: true,
+          message: "Login gagal, silahkan coba lagi..",
+        });
+      } else {
+        Router.push("/admin/list");
+      }
+    } else {
+      this.setState({ loading: false });
+      alert("server error");
+    }
+  };
+
+  componentDidMount() {}
 
   render() {
     return (
