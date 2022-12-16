@@ -2,19 +2,30 @@ import React from "react";
 import * as Widget from "../../../team/widget/";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
-import FormikSelectField from "../../../components/atoms/Formik/SelectField";
+import AppContext from "../../../config/context/app";
 import FormikTextField from "../../../components/atoms/Formik/TextField";
+import FormikSelectField from "../../../components/atoms/Formik/SelectField";
 import { Box, Button, Stack, Typography, Container, Grid } from "@mui/material";
 import APIArticleListById from "../../api/article/listById";
-import ConfirmationDialog from "../../../components/fungsi/confirmationDialog";
+// import ImageArticleUploadTools from "../../../components/vacationEdit/imageArticleUploadTools";
+import ConfirmationDialog from "../../../components/vacationEdit/confirmationDialog";
 import Router, { withRouter } from "next/router";
 import Head from "next/head";
 import APIArticleUpdate from "../../api/article/update";
 import APIArticleDelete from "../../api/article/delete";
-import AppContext from "../../../config/context/app";
-import ImageArticleUploadTools from "../../../components/vacationEdit/imageArticleUploadTools";
 
-class ArticleEdit extends React.Component {
+export async function getServerSideProps(context) {
+  const res = await APIArticleListById({
+    id: context.query.id,
+  });
+  const data = await res.data[0];
+
+  return {
+    props: { data },
+  };
+}
+
+class ArticleUpdate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,9 +33,9 @@ class ArticleEdit extends React.Component {
       title: "",
       content_desc: "",
       is_active: "",
-      // image_link: "",
-      // image_width: "",
-      // image_height: "",
+      image_link: "",
+      image_width: "",
+      image_height: "",
       openConfirmDelete: false,
     };
   }
@@ -98,25 +109,44 @@ class ArticleEdit extends React.Component {
     });
   };
 
-  getData = async (context) => {
-    const resp = await APIArticleListById({
-      id: this.props.router.query.id,
-      // id: context.query.id
-    });
-    this.setState({
-      id: "",
-      title: resp.data["0"].title,
-      content_desc: "",
-      is_active: "",
-      image_link: "",
-      create_ad: "",
-      update_at: "",
-    });
-    // console.log(resp.data[0].title);
-  };
+//   getData = async (context) => {
+//     const resp = await APIArticleListById({
+//       id: this.props.router.query.id,
+//       // id: context.query.id
+//     });
+//     this.setState({
+//       id: "",
+//       title: resp.data["0"].title,
+//       content_desc: "",
+//       is_active: "",
+//       image_link: "",
+//       create_ad: "",
+//       update_at: "",
+//     });
+//     // console.log(resp.data[0].title);
+//   };
+
+  //   componentDidMount() {
+  //     this.getData();
+  //   }
+
+  //   onUpdateContent = (result) => {
+  //     this.setState({
+  //       content_desc: result,
+  //     });
+  //   };
 
   componentDidMount() {
-    this.getData();
+    this.setState({
+      id: this.props.data["id"],
+      title: this.props.data["title"],
+      content_desc:
+        this.props.data["content_desc"] === null
+          ? ""
+          : this.props.data["content_desc"] === null,
+      is_active: this.props.data["is_active"],
+    //   image_link: this.props.data["image_link"],
+    });
   }
 
   onUpdateContent = (result) => {
@@ -230,7 +260,7 @@ class ArticleEdit extends React.Component {
     );
   }
 }
-export default withRouter(ArticleEdit);
+export default ArticleUpdate;
 
 const optionsIsActive = [
   { value: 0, label: "Tidak Aktif" },
