@@ -7,7 +7,7 @@ import FormikTextField from "../../../components/atoms/Formik/TextField";
 import FormikSelectField from "../../../components/atoms/Formik/SelectField";
 import { Box, Button, Stack, Typography, Container, Grid } from "@mui/material";
 import APIArticleListById from "../../api/article/listById";
-// import ImageArticleUploadTools from "../../../components/vacationEdit/imageArticleUploadTools";
+import ImageArticleUploadTools from "../../../components/vacationEdit/imageArticleUploadTools";
 import ConfirmationDialog from "../../../components/vacationEdit/confirmationDialog";
 import Router, { withRouter } from "next/router";
 import Head from "next/head";
@@ -26,6 +26,18 @@ export async function getServerSideProps(context) {
 }
 
 class ArticleUpdate extends React.Component {
+  state = {
+    snackbar: { message: "", open: false },
+  };
+
+  handleClick = () => {
+    this.setState({ snackbar: { message: "Berhasil Update!", open: true } });
+  };
+
+  handleClose = () => {
+    this.setState({ snackbar: { message: "", open: false } });
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -52,13 +64,13 @@ class ArticleUpdate extends React.Component {
   submitData = async (values) => {
     const resp = await APIArticleUpdate(values);
     if (resp.data === "success") {
-      this.setSnackbar({
+      this.setState({
         open: true,
         message: "Update Berhasil",
       });
-      Router.push("/admin/article/list");
+      Router.push("/admin/article/");
     } else {
-      this.setSnackbar({
+      this.setState({
         open: true,
         message: resp.statusText,
       });
@@ -98,7 +110,7 @@ class ArticleUpdate extends React.Component {
         open: false,
       });
 
-      Router.push("/admin/article/list");
+      Router.push("/admin/article/");
     }
   };
 
@@ -109,43 +121,13 @@ class ArticleUpdate extends React.Component {
     });
   };
 
-//   getData = async (context) => {
-//     const resp = await APIArticleListById({
-//       id: this.props.router.query.id,
-//       // id: context.query.id
-//     });
-//     this.setState({
-//       id: "",
-//       title: resp.data["0"].title,
-//       content_desc: "",
-//       is_active: "",
-//       image_link: "",
-//       create_ad: "",
-//       update_at: "",
-//     });
-//     // console.log(resp.data[0].title);
-//   };
-
-  //   componentDidMount() {
-  //     this.getData();
-  //   }
-
-  //   onUpdateContent = (result) => {
-  //     this.setState({
-  //       content_desc: result,
-  //     });
-  //   };
-
   componentDidMount() {
     this.setState({
       id: this.props.data["id"],
       title: this.props.data["title"],
-      content_desc:
-        this.props.data["content_desc"] === null
-          ? ""
-          : this.props.data["content_desc"] === null,
+      content_desc: this.props.data["content_desc"],
       is_active: this.props.data["is_active"],
-    //   image_link: this.props.data["image_link"],
+      image_link: this.props.data["image_link"],
     });
   }
 
@@ -156,6 +138,7 @@ class ArticleUpdate extends React.Component {
   };
 
   render() {
+    console.log(this.state.image_link);
     return (
       <div
         style={{
@@ -200,10 +183,10 @@ class ArticleUpdate extends React.Component {
                   <Button color="error" onClick={this.handleDelete}>
                     Hapus
                   </Button>
-                  <Button href="/admin/article/list">Daftar Artikel</Button>
+                  <Button href="/admin/article/">Daftar Artikel</Button>
                 </Stack>
                 <Widget.Box>
-                  {/* <Box mb={3}>
+                  <Box mb={3}>
                     <Typography>Image</Typography>
                     <ImageArticleUploadTools
                       id={this.state.id}
@@ -211,7 +194,7 @@ class ArticleUpdate extends React.Component {
                       image_width={100}
                       image_height={100}
                     />
-                  </Box> */}
+                  </Box>
 
                   <Box mb={3}>
                     <Typography>Title</Typography>

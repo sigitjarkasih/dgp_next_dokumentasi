@@ -12,21 +12,24 @@ import FormikTextField from "../../../components/atoms/Formik/TextField";
 import AppContext from "../../../config/context/app";
 
 class ArticleAdd extends React.Component {
+  state = {
+    snackbar: { message: "", open: false },
+  };
+
+  handleClick = () => {
+    this.setState({ snackbar: { message: "Berhasil Update!", open: true } });
+  };
+
+  handleClose = () => {
+    this.setState({ snackbar: { message: "", open: false } });
+  };
   constructor(props) {
     super(props);
     this.state = {
       title: "",
       is_activa: 1,
-      snackbar: {
-        open: false,
-        message: "...",
-      },
-    }; 
+    };
   }
-
-  setSnackbar = (snackbar) => {
-    this.setState((prevState) => ({ snackbar }));
-  };
 
   static contextType = AppContext;
 
@@ -37,14 +40,14 @@ class ArticleAdd extends React.Component {
   submitData = async (values) => {
     const resp = await APIArticleCreate(values);
     if (resp.data != "") {
-      this.setSnackbar({
+      this.setState({
         open: true,
         message: "Submit Berhasil",
       });
       Router.push(`/admin/list`);
       // Router.push(`/article/edit?id=${resp.data}`);
     } else {
-      this.setSnackbar({
+      this.setState({
         open: true,
         message: resp.statusText,
       });
@@ -92,7 +95,7 @@ class ArticleAdd extends React.Component {
             <Form>
               <Widgets.Paper>
                 <Widgets.PageHeader title="Create Articel" />
-                <Button href="/admin/article/list">Daftar Artikel</Button>
+                <Button href="/admin/article/">Daftar Artikel</Button>
                 <Widgets.Box>
                   <FrameField
                     title="Title"

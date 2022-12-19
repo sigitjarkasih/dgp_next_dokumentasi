@@ -1,9 +1,7 @@
 import axios from "axios";
-import { url_service } from "./url";
-// import { url_service1 } from "./url";
+import { url_service } from "../url";
 
-
-const APIUserArticle = async (data) => {
+const APIUserArticleLogin = async (data) => {
   const result = await axios({
     method: "post",
     mode: "no-cors",
@@ -11,8 +9,7 @@ const APIUserArticle = async (data) => {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    url: `${url_service}/user_article/listbyid/`,
-    // url: `${url_service1}/admin/api/dgmalluserarticle/`,
+    url: `${url_service}/user_article/login-by-email/`,
     data: data,
   })
     .then(function (response) {
@@ -25,4 +22,4 @@ const APIUserArticle = async (data) => {
   return result;
 };
 
-export default APIUserArticle;
+export default APIUserArticleLogin;

@@ -2,7 +2,7 @@ import { Component, createRef } from "react";
 import { Button } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import Image from "next/image";
-import { url_media } from "../../pages/api/url";
+import { url_media, url_media_local } from "../../pages/api/url";
 import { Box } from "@mui/system";
 import AppContext from "../../config/context/app";
 import APIArticleImageUpload from "../../pages/api/article/imageUpload";
@@ -31,10 +31,13 @@ class ImageArticleUploadTools extends Component {
 
   handleUpload = async (e) => {
     // this.context.setLoading(true);
+    console.log("handleUpload");
+    console.log(this.props.id);
     let file = this.state.file;
     let formdata = new FormData();
     formdata.append("image", file);
     formdata.append("id", this.props.id);
+    console.log(formdata);
     const resp = await APIArticleImageUpload(formdata);
     console.log(resp);
     if (resp.statusText === "OK") {
@@ -45,7 +48,7 @@ class ImageArticleUploadTools extends Component {
 
       this.setState({
         id: resp.data,
-        image: url_media + resp.data,
+        image: url_media_local + resp.data,
         file: null,
         image_link: null,
         // imagePreviewUrl: '',
@@ -84,7 +87,12 @@ class ImageArticleUploadTools extends Component {
       <>
         {this.props.image_link != null ? (
           // <div style={{ width: '100%', height: '100%', position: 'relative' }}>
-          <Image src="http://127.0.0.1:8000/api" height={50} width={100} alt="cover"/>
+          <Image
+            src={url_media_local + this.props.image_link}
+            height={50}
+            width={100}
+            alt="cover"
+          />
         ) : (
           // </div>
           ""
@@ -111,7 +119,7 @@ class ImageArticleUploadTools extends Component {
                 <div style={{ color: "GrayText" }}>Gambar Baru</div>
                 <Box m={2}></Box>
                 <Image
-                  src="http://127.0.0.1:8000/api"
+                  src={this.state.imagePreviewUrl}
                   height={50}
                   width={100}
                   alt="cover"

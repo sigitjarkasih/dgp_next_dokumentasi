@@ -4,7 +4,8 @@ import AppContext from "../../config/context/app";
 import Router from "next/router";
 import { Box } from "@mui/material";
 import Head from "next/head";
-import APIUserArticle from "../api/userArticle";
+// import APIUserArticle from "../api/signin/list";
+import APIUserArticleLogin from "../api/signin/login-by-email";
 
 class AccountSignin extends React.Component {
   constructor(props) {
@@ -13,40 +14,22 @@ class AccountSignin extends React.Component {
       email: "",
       password: "",
       loading: false,
-      snackbar: {
-        open: false,
-        message: "...",
-      },
     };
   }
 
   static contextType = AppContext;
 
-  setSnackbar = (snackbar) => {
-    this.setState((prevState) => ({ snackbar }));
-  };
-
   submitData = async () => {
     this.setState({ loading: true });
-    const resp = await APIUserArticle({
+    const resp = await APIUserArticleLogin({
       email: this.state.email.trim().toLowerCase(),
       password: this.state.password.trim(),
     });
-    console.log(resp);
+    // console.log(resp);
 
-    if (resp.data === "success") {
-      if (resp.data.data === "failed") {
-        this.setState({ loading: false });
-        this.setSnackbar({
-          open: true,
-          message: "Login gagal, silahkan coba lagi..",
-        });
-      } else {
-        Router.push("/admin/list");
-      }
+    if (resp.data.statusText === "OK") {
     } else {
-      this.setState({ loading: false });
-      alert("server error");
+      Router.push("/admin/article");
     }
   };
 
