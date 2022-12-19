@@ -186,7 +186,7 @@ export default class Pembeli extends Component {
                   display: "flex",
                 }}
               >
-                <Link href="/">
+                <Link href="/pembeli/akunkeamanan/">
                   <div
                     style={{
                       display: "flex",
@@ -218,7 +218,7 @@ export default class Pembeli extends Component {
                     </div>
                   </div>
                 </Link>
-                <Link href="/">
+                <Link href="/pembeli/komplainpesanan/">
                   <div
                     style={{
                       display: "flex",
@@ -250,7 +250,7 @@ export default class Pembeli extends Component {
                     </div>
                   </div>
                 </Link>
-                <Link href="/">
+                <Link href="/pembeli/pembayaran/">
                   <div
                     style={{
                       display: "flex",
@@ -282,7 +282,7 @@ export default class Pembeli extends Component {
                     </div>
                   </div>
                 </Link>
-                <Link href="">
+                <Link href="/pembeli/pengiriman/">
                   <div
                     style={{
                       display: "flex",
@@ -325,7 +325,7 @@ export default class Pembeli extends Component {
                   display: "flex",
                 }}
               >
-                <Link href="/">
+                <Link href="/pembeli/pengembaliandana">
                   <div
                     style={{
                       display: "flex",
@@ -357,7 +357,7 @@ export default class Pembeli extends Component {
                     </div>
                   </div>
                 </Link>
-                <Link href="/">
+                <Link href="/pembeli/komplainpesanan/">
                   <div
                     style={{
                       display: "flex",
@@ -421,7 +421,7 @@ export default class Pembeli extends Component {
                     </div>
                   </div>
                 </Link>
-                <Link href="/">
+                <Link href="/pembeli/lainnya/">
                   <div
                     style={{
                       display: "flex",

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../../components/Navbar";
+import Navbar from "../../../components/Navbar";
 import Head from "next/head";
 import { Container, Grid } from "@mui/material";
-import APIArticleList from "../api/article/list";
+import APIArticleList from "../../api/article/list";
 import { Component } from "react";
 
 export async function getServerSideProps(context) {

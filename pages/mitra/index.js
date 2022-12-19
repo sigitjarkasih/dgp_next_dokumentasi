@@ -345,7 +345,7 @@ export default class Pembeli extends Component {
                   display: "flex",
                 }}
               >
-                <Link href="./madrasah">
+                <Link href="/mitra/madrasah/">
                   <div
                     style={{
                       display: "flex",
@@ -373,7 +373,7 @@ export default class Pembeli extends Component {
                         paddingLeft: 20,
                       }}
                     >
-                      <h4>{this.state.data}</h4>
+                      <h4>Dompet Madrasah</h4>
                     </div>
                   </div>
                 </Link>
