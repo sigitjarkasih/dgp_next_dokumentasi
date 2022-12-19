@@ -4,7 +4,6 @@ import AppContext from "../../config/context/app";
 import Router from "next/router";
 import { Box } from "@mui/material";
 import Head from "next/head";
-// import APIUserArticle from "../api/signin/list";
 import APIUserArticleLogin from "../api/signin/login-by-email";
 
 class AccountSignin extends React.Component {
