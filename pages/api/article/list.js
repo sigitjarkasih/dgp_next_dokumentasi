@@ -10,7 +10,7 @@ const APIArticleList = async (data) => {
       "Content-Type": "application/json",
     },
     url: `${url_service}/article/list/`,
-    data: data,
+    data: data, 
   })
     .then(function (response) {
       return response;

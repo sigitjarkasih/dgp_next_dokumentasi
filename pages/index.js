@@ -27,6 +27,11 @@ export default function Home() {
             <p>Temukan Topik Kendalamu di Sini</p>
           </a>
 
+          <a href="./mitra" className={styles.card}>
+            <h2>Mitra &rarr;</h2>
+            <p>Temukan Topik Kendalamu di Sini</p>
+          </a>
+
           <a href="" className={styles.card}>
             <h2>Kontak Kami &rarr;</h2>
             <p>
