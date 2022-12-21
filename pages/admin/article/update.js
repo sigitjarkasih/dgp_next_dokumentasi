@@ -13,6 +13,8 @@ import Router, { withRouter } from "next/router";
 import Head from "next/head";
 import APIArticleUpdate from "../../api/article/update";
 import APIArticleDelete from "../../api/article/delete";
+// import TiptapEditor from "../../../components/vacationEdit/tiptapEditor";
+// import TipTap from "../../../components/vacationEdit/Tiptap";
 
 export async function getServerSideProps(context) {
   const res = await APIArticleListById({
@@ -45,7 +47,7 @@ class ArticleUpdate extends React.Component {
       title: "",
       content_desc: "",
       is_active: "",
-      image_link: "",
+      image_link: null,
       image_width: "",
       image_height: "",
       openConfirmDelete: false,
@@ -207,8 +209,8 @@ class ArticleUpdate extends React.Component {
                   <Box mb={3}>
                     <Typography>Content_Desc</Typography>
                     <FormikTextField
-                      name="content_desc"
-                      placeholder="Masukkan deskripsi article"
+                      name="title"
+                      placeholder="Masukkan Deskripsi article"
                     />
                   </Box>
 

@@ -44,10 +44,6 @@ export default class Article extends Component {
     });
   };
 
-  // handleStickItemClick(event, index){
-  //   this.state.selectedIndex(index)
-  // }
-
   componentDidMount() {
     // console.log(this.props);
     // console.log(this.props.data);
@@ -57,7 +53,7 @@ export default class Article extends Component {
   }
 
   render() {
-    const data1 = this.state.title;
+    // const data1 = this.state.title;
     return (
       <div
         style={{
@@ -86,7 +82,6 @@ export default class Article extends Component {
             >
               <Toolbar />
               {this.props.data.map((rows) => {
-                <li key={rows.id}>{rows.title}</li>;
                 return (
                   <List
                     sx={{
@@ -97,6 +92,7 @@ export default class Article extends Component {
                     }}
                     component="nav"
                     onClick={() => this.goToDetail(rows.id)}
+                    key={rows.title}
                   >
                     {rows.title}
                   </List>
@@ -120,7 +116,10 @@ export default class Article extends Component {
                 <></>
               )}
             </div>
-            <div>{this.state.deskripsi}</div>
+            <div>
+              {this.state.deskripsi}
+              <hr></hr>
+            </div>
             <Typography
               variant="body2"
               color="text.secondary"
