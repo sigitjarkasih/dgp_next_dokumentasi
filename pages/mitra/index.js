@@ -135,66 +135,76 @@ export default class Article extends Component {
             </div>
             <div>{this.state.deskripsi}</div>
 
-            <h3> Sosial Media</h3>
+            <div style={{ display: "flex" }}>
+              <div style={{ display: "block" }}>
+                <h3> Sosial Media</h3>
+                <div style={{ alignItems: "center", display: "flex" }}>
+                  <div style={{ alignItems: "center" }}>
+                    <InstagramIcon fontSize="medium" />
+                  </div>
+                  &nbsp;
+                  <div>
+                    <a
+                      target="_blank"
+                      href="https://www.instagram.com/dgmallsyariah_official/?hl=id"
+                      rel="noreferrer"
+                    >
+                      Instagram
+                    </a>
+                  </div>
+                </div>
 
-            <div style={{ alignItems: "center", display: "flex" }}>
-              <div style={{ alignItems: "center" }}>
-                <InstagramIcon fontSize="medium" />
+                <div style={{ alignItems: "center", display: "flex" }}>
+                  <div style={{ alignItems: "center" }}>
+                    <YouTubeIcon fontSize="medium" />
+                  </div>
+                  &nbsp;
+                  <div>
+                    <a
+                      target="_blank"
+                      href="https://www.youtube.com/@dgmall_official5354/videos"
+                      rel="noreferrer"
+                    >
+                      Youtube
+                    </a>
+                  </div>
+                </div>
+
+                <div style={{ alignItems: "center", display: "flex" }}>
+                  <div style={{ alignItems: "center", paddingLeft: "3px" }}>
+                    <Image src="/tiktok.png" height={17} width={17} />
+                  </div>
+                  &nbsp;
+                  <div>
+                    <a
+                      style={{ paddingLeft: "4px" }}
+                      target="_blank"
+                      href="https://www.tiktok.com/@dgmallsyariah_official?lang=id-ID"
+                      rel="noreferrer"
+                    >
+                      Tiktok
+                    </a>
+                  </div>
+                </div>
               </div>
-              &nbsp;
+              <br />
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
               <div>
-                <a
-                  target="_blank"
-                  href="https://www.instagram.com/dgmallsyariah_official/?hl=id"
-                  rel="noreferrer"
-                >
-                  Instagram
+                <h3> Hubungi Kami</h3>
+
+                <a href="https://wa.me/6281294999804">
+                  WhatsApp : +62 812-9499-9804
                 </a>
+                <br />
+                <a>Email : marketing@dgpmall.com</a>
+                <br />
+                <a>Nomor Telpon : (021) 27874784</a>
               </div>
             </div>
 
-            <div style={{ alignItems: "center", display: "flex" }}>
-              <div style={{ alignItems: "center" }}>
-                <YouTubeIcon fontSize="medium" />
-              </div>
-              &nbsp;
-              <div>
-                <a
-                  target="_blank"
-                  href="https://www.youtube.com/@dgmall_official5354/videos"
-                  rel="noreferrer"
-                >
-                  Youtube
-                </a>
-              </div>
-            </div>
-
-            <div style={{ alignItems: "center", display: "flex" }}>
-              <div style={{ alignItems: "center" }}>
-                <InstagramIcon fontSize="medium" />
-              </div>
-              &nbsp;
-              <div>
-                <a
-                  target="_blank"
-                  href="https://www.tiktok.com/@dgmallsyariah_official?lang=id-ID"
-                  rel="noreferrer"
-                >
-                  Tiktok
-                </a>
-              </div>
-            </div>
-            <br />
-
-            <h3> Hubungi Kami</h3>
-
-            <a href="https://wa.me/6281294999804">
-              WhatsApp : +62 812-9499-9804
-            </a>
-            <br />
-            <a>Email : marketing@dgpmall.com</a>
-            <br />
-            <a>Nomor Telpon : (021) 27874784</a>
             <br />
 
             <Typography
