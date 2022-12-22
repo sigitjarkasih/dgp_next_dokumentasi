@@ -12,6 +12,8 @@ import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import styles from "../../styles/Home.module.css";
 
 export async function getServerSideProps(context) {
   const resp = await APIArticleList({
@@ -135,7 +137,7 @@ export default class Article extends Component {
             </div>
             <div>{this.state.deskripsi}</div>
 
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex", justifyContent: "space-around" }}>
               <div style={{ display: "block" }}>
                 <h3> Sosial Media</h3>
                 <div style={{ alignItems: "center", display: "flex" }}>
@@ -150,6 +152,22 @@ export default class Article extends Component {
                       rel="noreferrer"
                     >
                       Instagram
+                    </a>
+                  </div>
+                </div>
+
+                <div style={{ alignItems: "center", display: "flex" }}>
+                  <div style={{ alignItems: "center" }}>
+                    <FacebookIcon fontSize="medium" />
+                  </div>
+                  &nbsp;
+                  <div>
+                    <a
+                      target="_blank"
+                      href="https://www.facebook.com/profile.php?id=100087343495536"
+                      rel="noreferrer"
+                    >
+                      Facebook
                     </a>
                   </div>
                 </div>
@@ -172,7 +190,12 @@ export default class Article extends Component {
 
                 <div style={{ alignItems: "center", display: "flex" }}>
                   <div style={{ alignItems: "center", paddingLeft: "3px" }}>
-                    <Image src="/tiktok.png" height={17} width={17} />
+                    <Image
+                      src="/tiktok.png"
+                      height={17}
+                      width={17}
+                      alt="sosmed"
+                    />
                   </div>
                   &nbsp;
                   <div>
@@ -188,10 +211,7 @@ export default class Article extends Component {
                 </div>
               </div>
               <br />
-              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
               <div>
                 <h3> Hubungi Kami</h3>
 
@@ -203,23 +223,64 @@ export default class Article extends Component {
                 <br />
                 <a>Nomor Telpon : (021) 27874784</a>
               </div>
+              <br />
+              <div>
+                <h3> Download DGMall Syariah Mobile</h3>
+                <div style={{ alignItems: "center", display: "flex" }}>
+                  <div style={{ alignItems: "center", paddingLeft: "5px" }}>
+                    <a
+                      target="_blank"
+                      href="https://play.google.com/store/apps/details?id=com.dgpnet"
+                      rel="noreferrer"
+                    >
+                      <Image
+                        src="/store.png"
+                        height={66}
+                        width={160}
+                        alt="sosmed"
+                      />
+                    </a>
+                  </div>
+                </div>
+
+                <div style={{ alignItems: "center", display: "flex" }}>
+                  <div style={{ alignItems: "center", paddingLeft: "10px" }}>
+                    <a
+                      target="_blank"
+                      href="https://play.google.com/store/apps/details?id=com.dgpnet"
+                      rel="noreferrer"
+                    >
+                      <Image
+                        src="/apple.png"
+                        height={55}
+                        width={155}
+                        alt="sosmed"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <br />
 
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              align="center"
-              paddingTop="80px"
-            >
-              {"Copyright © "}
-              <a target="_blank" href="https://dgmall.id/" rel="noreferrer">
-                DGMall Syariah
+            <footer className={styles.footer}>
+              <a
+                href="https://dgmall.id/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/LogoDgmall.png"
+                  alt="DGMall Logo"
+                  width={50}
+                  height={35}
+                />
+                &nbsp;
+                {"Copyright © "} DGMall Syariah &nbsp;
+                {new Date().getFullYear()}
               </a>
-              &nbsp;
-              {new Date().getFullYear()}
-            </Typography>
+            </footer>
           </div>
         </div>
       </div>

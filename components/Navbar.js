@@ -22,6 +22,7 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import HolidayVillageIcon from "@mui/icons-material/HolidayVillage";
 import Image from "next/image";
 import Link from "next/link";
+import Button from "@mui/material/Button";
 
 const drawerWidth = 250;
 
@@ -114,14 +115,14 @@ function Navbar() {
         >
           <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              <Link href="./pembeli">
+              <a target="_blank" href="https://dgmall.id/" rel="noreferrer">
                 <Image
                   src="/LogoDgmall.png"
                   width={60}
                   height={50}
                   alt="logo"
                 />
-              </Link>
+              </a>
             </Typography>
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
@@ -143,57 +144,30 @@ function Navbar() {
                 <MoreIcon />
               </IconButton>
             </Box>
+            <MenuItem>
+              <a
+                target="_blank"
+                href="https://dgmall.id/d/app/auth/login"
+                rel="noreferrer"
+              >
+                <Button variant="outlined" color="success">
+                  Masuk
+                </Button>
+              </a>
+            </MenuItem>
+            <MenuItem>
+              <a
+                target="_blank"
+                href="https://dgmall.id/d/app/auth/register"
+                rel="noreferrer"
+              >
+                <Button variant="contained" color="success">
+                  Daftar
+                </Button>
+              </a>
+            </MenuItem>
           </Toolbar>
         </AppBar>
-        {/* <Drawer
-          sx={{
-            width: drawerWidth,
-            flexShrink: 0,
-            "& .MuiDrawer-paper": {
-              width: drawerWidth,
-              boxSizing: "border-box",
-            },
-          }}
-          variant="permanent"
-          anchor="left"
-        >
-          <Toolbar />
-          <List
-            sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
-            component="nav"
-          >
-            <br />
-            <ListItemButton onClick={clickBuka}>
-              <ListItemIcon>
-                <DashboardIcon />
-              </ListItemIcon>
-              <Link href="./dashboard">Dashboard</Link>
-            </ListItemButton>
-          </List>
-
-          <Divider />
-          <List
-            sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
-            component="nav"
-            subheader={
-              <ListSubheader component="div" id="nested-list-subheader">
-                DGMall Syariah Help Center
-              </ListSubheader>
-            }
-          >
-            <ListItemButton
-              selected={selectedIndex === 1}
-              onClick={(event) => handleListItemClick(event, 1)}
-            >
-              <br /> <br />
-              <ListItemIcon>
-                <HolidayVillageIcon />
-              </ListItemIcon>
-              <Link href="./artikel">Data Artikel</Link>
-            </ListItemButton>
-            <ListItemButton onClick={handleClick}></ListItemButton>
-          </List>
-        </Drawer> */}
       </Box>
     </div>
   );
