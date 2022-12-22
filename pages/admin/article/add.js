@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import { Form, Formik } from "formik";
 import Router from "next/router";
 import APIArticleCreate from "../../api/article/create";
-import Layout from "../../../components/Layout";
+// import Layout from "../../../components/Layout";
 import { Grid, Button, CardContent, Container, Box } from "@mui/material";
 import Head from "next/head";
 import * as Widgets from "../../../team/widget/";

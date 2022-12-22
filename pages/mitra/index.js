@@ -9,11 +9,12 @@ import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
-import Typography from "@mui/material/Typography";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import styles from "../../styles/Home.module.css";
+import MenuItem from "@mui/material/MenuItem";
+import Button from "@mui/material/Button";
 
 export async function getServerSideProps(context) {
   const resp = await APIArticleList({
@@ -136,6 +137,27 @@ export default class Article extends Component {
               )}
             </div>
             <div>{this.state.deskripsi}</div>
+
+            <div>
+              <h5>Apakah Artikel ini membantu?</h5>
+              <MenuItem>
+                <Button
+                  variant="outlined"
+                  color="success"
+                  href="#outlined-buttons"
+                >
+                  Ya
+                </Button>
+                &nbsp; &nbsp; &nbsp;
+                <Button
+                  variant="outlined"
+                  color="success"
+                  href="#outlined-buttons"
+                >
+                  Tidak
+                </Button>
+              </MenuItem>
+            </div>
 
             <div style={{ display: "flex", justifyContent: "space-around" }}>
               <div style={{ display: "block" }}>
