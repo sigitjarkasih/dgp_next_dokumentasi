@@ -5,7 +5,15 @@ import * as Yup from "yup";
 import AppContext from "../../../config/context/app";
 import FormikTextField from "../../../components/atoms/Formik/TextField";
 import FormikSelectField from "../../../components/atoms/Formik/SelectField";
-import { Box, Button, Stack, Typography, Container, Grid } from "@mui/material";
+import {
+  Box,
+  Button,
+  Stack,
+  Typography,
+  Container,
+  Grid,
+  TextField,
+} from "@mui/material";
 import APIArticleListById from "../../api/article/listById";
 import ImageArticleUploadTools from "../../../components/vacationEdit/imageArticleUploadTools";
 import ConfirmationDialog from "../../../components/vacationEdit/confirmationDialog";
@@ -15,6 +23,7 @@ import APIArticleUpdate from "../../api/article/update";
 import APIArticleDelete from "../../api/article/delete";
 // import TiptapEditor from "../../../components/vacationEdit/tiptapEditor";
 // import TipTap from "../../../components/vacationEdit/Tiptap";
+import Textarea from "../../../components/vacationEdit/Textarea";
 
 export async function getServerSideProps(context) {
   const res = await APIArticleListById({
@@ -208,8 +217,8 @@ class ArticleUpdate extends React.Component {
 
                   <Box mb={3}>
                     <Typography>Content_Desc</Typography>
-                    <FormikTextField
-                      name="title"
+                    <Textarea
+                      name="content_desc"
                       placeholder="Masukkan Deskripsi article"
                     />
                   </Box>

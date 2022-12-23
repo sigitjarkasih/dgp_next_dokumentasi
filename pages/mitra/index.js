@@ -159,6 +159,8 @@ export default class Article extends Component {
               </MenuItem>
             </div>
 
+            <hr />
+
             <div style={{ display: "flex", justifyContent: "space-around" }}>
               <div style={{ display: "block" }}>
                 <h3> Sosial Media</h3>
