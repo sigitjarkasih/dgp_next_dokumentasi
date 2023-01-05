@@ -15,6 +15,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import styles from "../../styles/Home.module.css";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
+import { ListSubheader } from "@mui/material";
 
 export async function getServerSideProps(context) {
   const resp = await APIArticleList({
@@ -160,6 +161,10 @@ export default class Article extends Component {
             </div>
 
             <hr />
+
+            {/* <div>
+              <h3 align="center">Pertanyaan yang sering ditanyakan</h3>
+            </div> */}
 
             <div style={{ display: "flex", justifyContent: "space-around" }}>
               <div style={{ display: "block" }}>

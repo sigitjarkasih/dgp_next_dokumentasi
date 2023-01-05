@@ -44,7 +44,7 @@ class ArticleAdd extends React.Component {
         open: true,
         message: "Submit Berhasil",
       });
-      Router.push(`/admin/list`);
+      Router.push(`/admin/article`);
       // Router.push(`/article/edit?id=${resp.data}`);
     } else {
       this.setState({

@@ -1,18 +1,18 @@
 import axios from "axios";
-import { url_service } from "../url";
+import { url_service } from "../../url";
 // import Cookies from "universal-cookie";
 
-const APIArticleImageUpload = async (data) => {
-  // const cookies = new Cookies;
-  // const token = cookies.get("TOKEN");
+const APIAkadTransaksiUpdate = async (data) => {
+  //   const cookies = new Cookies();
+  //   const token = cookies.get("TOKEN");
   const result = await axios({
     method: "post",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      // 'Authorization': 'BASIC ' + token,
+      //   Authorization: "BASIC " + token,
     },
-    url: `${url_service}/article/image-upload/`,
+    url: `${url_service}/akad-transaksi/update/`,
     data: data,
   })
     .then(function (response) {
@@ -25,4 +25,4 @@ const APIArticleImageUpload = async (data) => {
   return result;
 };
 
-export default APIArticleImageUpload;
+export default APIAkadTransaksiUpdate;

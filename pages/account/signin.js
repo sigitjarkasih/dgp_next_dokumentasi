@@ -4,7 +4,7 @@ import AppContext from "../../config/context/app";
 import Router from "next/router";
 import { Box } from "@mui/material";
 import Head from "next/head";
-import APIUserArticleLogin from "../api/signin/login-by-email";
+import APIUserArticle from "../api/signin/login-by-email";
 
 class AccountSignin extends React.Component {
   constructor(props) {
@@ -20,19 +20,22 @@ class AccountSignin extends React.Component {
 
   submitData = async () => {
     this.setState({ loading: true });
-    const resp = await APIUserArticleLogin({
+    const resp = await APIUserArticle({
       email: this.state.email.trim().toLowerCase(),
       password: this.state.password.trim(),
     });
     // console.log(resp);
 
-    if (resp.data.statusText === "OK") {
-    } else {
+    console.log(resp.data);
+
+    {
       Router.push("/admin/article");
     }
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    // console.log('Sign In Page')
+  }
 
   render() {
     return (

@@ -1,16 +1,18 @@
 import axios from "axios";
-import { url_service } from "../url";
-import Cookies from "universal-cookie";
+import { url_service } from "../../url";
+// import Cookies from "universal-cookie";
 
-const APIUserArticle = async (data) => {
-  const cookies = new Cookies();
+const APIPembeliCreate = async (data) => {
+//   const cookies = new Cookies();
+//   const token = cookies.get("TOKEN");
   const result = await axios({
     method: "post",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
+    //   Authorization: "BASIC " + token,
     },
-    url: `${url_service}/user_article/list/`,
+    url: `${url_service}/pembeli/create/`,
     data: data,
   })
     .then(function (response) {
@@ -23,4 +25,4 @@ const APIUserArticle = async (data) => {
   return result;
 };
 
-export default APIUserArticle;
+export default APIPembeliCreate;
